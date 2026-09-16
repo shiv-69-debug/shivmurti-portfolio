@@ -147,12 +147,14 @@ function App() {
     gsap.ticker.lagSmoothing(0)
     const context = gsap.context(() => {
       gsap.fromTo('.hero-title-wrap > *', { opacity: 0, y: 60, filter: 'blur(8px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.15, stagger: 0.08, ease: 'power3.out', delay: 0.12 })
-      gsap.fromTo('.hero-art', { opacity: 0, scale: 0.82, y: 50 }, { opacity: 1, scale: 1, y: 0, duration: 1.4, ease: 'power3.out', delay: 0.3 })
+      gsap.fromTo('.hero-art .webgl-scene', { opacity: 0, scale: 0.92, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: 1.4, ease: 'power3.out', delay: 0.3 })
       gsap.fromTo('.nav, .hero-meta, .scroll-cue', { opacity: 0 }, { opacity: 1, duration: 1, delay: 0.4 })
       gsap.utils.toArray('.section-heading, .project-card, .about-lead, .about-copy, .skill-row, .journey-row, .contact-section h2, .contact-bottom').forEach((element) => {
         gsap.fromTo(element, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 84%', toggleActions: 'play none none reverse' } })
       })
-      gsap.to('.hero-art', { yPercent: 28, rotate: 5, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } })
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.to('.hero-art .webgl-scene', { yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } })
+      }
     })
     return () => { context.revert(); lenis.destroy(); gsap.ticker.remove(lenisFrame) }
   }, [entered])
