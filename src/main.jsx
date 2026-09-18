@@ -29,12 +29,12 @@ const projects = [
   },
   {
     number: '03',
-    type: 'FIREBASE WEB APPLICATION',
-    title: 'Milan Shaadi',
-    description: 'A responsive matchmaking website with Google, phone, and email/password authentication, configured and deployed with Firebase Hosting.',
-    stack: ['HTML/CSS', 'JavaScript', 'Firebase'],
-    link: 'mailto:shivmurthydoddini@gmail.com?subject=Milan%20Shaadi%20walkthrough',
-    linkLabel: 'REQUEST WALKTHROUGH',
+    type: 'KARNATAKA MATRIMONY PLATFORM',
+    title: 'maduveshaadi.com',
+    description: 'A Karnataka-focused matrimony website with multilingual access, community-based matching, and privacy-conscious profile sharing.',
+    stack: ['HTML/CSS', 'JavaScript'],
+    link: 'https://maduveshaadi.com',
+    linkLabel: 'VISIT WEBSITE',
   },
 ]
 

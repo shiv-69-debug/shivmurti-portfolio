@@ -6,6 +6,8 @@ Public portfolio website for Shivmurti Doddini, a Computer Science undergraduate
 
 https://shiv-69-debug.github.io/shivmurti-portfolio/
 
+Opening `index.html` directly from your file manager redirects to the live website and requires an internet connection. To preview local edits, use the development server below.
+
 ## Highlights
 
 - Full-screen loading and portfolio reveal animation
@@ -15,7 +17,7 @@ https://shiv-69-debug.github.io/shivmurti-portfolio/
 - Lenis smooth scrolling
 - Custom animated cursor on desktop
 - Responsive layout for mobile and desktop
-- Project showcase for ProofBuild, Interview Practice, and Milan Shaadi
+- Project showcase for ProofBuild, Interview Practice, and maduveshaadi.com
 - Skills, leadership, internship, award, and contact sections
 
 ## Built With
@@ -85,9 +87,11 @@ Repository: https://github.com/shiv-69-debug/proofbuild
 
 A Python/Flask mock-interview platform using a local LLM to generate role-specific questions, evaluate responses, and provide coaching feedback.
 
-### Milan Shaadi
+### maduveshaadi.com
 
-A responsive matchmaking web application with Firebase Authentication for Google, phone, and email/password sign-in.
+A Karnataka-focused matrimony website with multilingual access, community-based matching, and privacy-conscious profile sharing.
+
+Website: https://maduveshaadi.com
 
 ## Contact
 
