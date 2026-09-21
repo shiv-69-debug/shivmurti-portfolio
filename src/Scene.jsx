@@ -51,6 +51,28 @@ function Stroke({ points, color, radius = 0.008 }) {
   </mesh>
 }
 
+function Glasses() {
+  return <group>
+    {[-1, 1].map((side) => <group key={side}>
+      <mesh position={[side * 0.105, 0.038, 0.25]} scale={[1.12, 0.82, 1]} castShadow>
+        <torusGeometry args={[0.071, 0.011, 8, 40]} />
+        <meshStandardMaterial color="#24232c" roughness={0.38} metalness={0.25} />
+      </mesh>
+      <mesh position={[side * 0.105, 0.038, 0.25]} scale={[1.12, 0.82, 1]}>
+        <circleGeometry args={[0.066, 40]} />
+        <meshStandardMaterial color="#c6def2" transparent opacity={0.12} roughness={0.18} side={THREE.DoubleSide} depthWrite={false} />
+      </mesh>
+      <Stroke points={[
+        [side * 0.184, 0.045, 0.25],
+        [side * 0.247, 0.045, 0.16],
+        [side * 0.283, 0.025, 0.015],
+        [side * 0.28, -0.015, -0.035],
+      ]} color="#24232c" radius={0.009} />
+    </group>)}
+    <Stroke points={[[-0.028, 0.055, 0.25], [0, 0.069, 0.278], [0.028, 0.055, 0.25]]} color="#24232c" radius={0.01} />
+  </group>
+}
+
 function Face() {
   const geometry = useMemo(() => {
     // Chin, jaw, cheekbones, temples and crown have different widths, unlike a spherical mascot head.
@@ -110,6 +132,7 @@ function Face() {
     {/* Bridge, tip and nostrils give the face a readable profile. */}
     <Ellipsoid position={[0, -0.003, 0.224]} scale={[0.033, 0.102, 0.04]} color={palette.skin} rotation={[-0.14, 0, 0]} />
     <Ellipsoid position={[0, -0.073, 0.258]} scale={[0.034, 0.030, 0.037]} color={palette.skin} />
+    <Glasses />
     {[-1, 1].map((side) => <group key={side}>
       <Ellipsoid position={[side * 0.035, -0.09, 0.24]} scale={[0.024, 0.021, 0.028]} color={palette.skin} />
       <Ellipsoid position={[side * 0.024, -0.103, 0.257]} scale={[0.01, 0.005, 0.008]} color="#6f4839" />
@@ -318,7 +341,7 @@ function Scene() {
     media.addEventListener('change', update)
     return () => media.removeEventListener('change', update)
   }, [])
-  return <div className="webgl-scene" role="img" aria-label="A developer with natural facial features seated at a desk, working with a laptop and an external monitor.">
+  return <div className="webgl-scene" role="img" aria-label="A developer wearing glasses seated at a desk, working with a laptop and an external monitor.">
     <Canvas camera={{ position: [5.4, 2.9, 5.8], fov: 36 }} dpr={[1, 1.5]} shadows={THREE.PCFShadowMap} gl={{ alpha: true, antialias: true }} onCreated={({ camera }) => camera.lookAt(0, -0.43, 0)}>
       <ambientLight intensity={0.65} color="#f3e9e3" />
       <hemisphereLight args={['#eee9ff', '#302939', 1.1]} />
